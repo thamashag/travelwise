@@ -1,12 +1,12 @@
-// components/Hero.jsx
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
-    <section className="bg-cover bg-[url('../assets/hero6.jpg')]">
+    <section className="bg-cover bg-center bg-[url('../assets/hero6.jpg')]">
       <div className="h-screen flex items-center">
-        <div className="w-full max-w-[1200px] h-full flex flex-col justify-center px-5 md:px-10 lg:px-20">
-          <h1 className="text-4xl md:text-6xl lg:text-8xl font-semibold text-white">
+        {/* Centralized container with consistent width */}
+        <div className="w-full max-w-[1500px] h-full flex flex-col justify-center mx-auto px-[20px] pb-[100px] md:pb-[5px]">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-semibold text-white">
             <span className="text-[#d5fcf9]">Santorini,</span> Greece
           </h1>
           <p className="font-light text-base md:text-lg lg:text-2xl mt-5 text-white">

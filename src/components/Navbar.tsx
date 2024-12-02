@@ -12,13 +12,13 @@ const Navbar: React.FC = () => {
 
   return (
     <div className="fixed top-0 left-0 w-full z-10 bg-transparent">
-      <div className="flex items-center h-20 px-5 md:px-10">
-        <div className="w-full max-w-screen-xl flex items-center justify-between">
+      <div className="w-full max-w-[1500px] mx-auto flex items-center h-20 px-[20px]">
+        <div className="w-full flex items-center justify-between">
           {/* Logo */}
           <div className="text-2xl uppercase text-white">Travelwise</div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 flex text-base md:text-lg gap-5 md:gap-10 text-white">
+          <nav className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 flex text-lg gap-10 text-white">
             <a href="#home">Home</a>
             <a href="#services">Services</a>
             <a href="#about">About</a>
@@ -27,31 +27,31 @@ const Navbar: React.FC = () => {
 
           {/* Hamburger Menu Button */}
           <div
-            className="lg:hidden text-white text-2xl cursor-pointer pr-5"
+            className="lg:hidden text-white text-2xl cursor-pointer"
             onClick={toggleMenu}
           >
             {isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
           </div>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="absolute top-20 left-0 w-full bg-black bg-opacity-90 text-white flex flex-col items-center gap-5 py-5">
-          <a href="#home" onClick={toggleMenu}>
-            Home
-          </a>
-          <a href="#services" onClick={toggleMenu}>
-            Services
-          </a>
-          <a href="#about" onClick={toggleMenu}>
-            About
-          </a>
-          <a href="#contact" onClick={toggleMenu}>
-            Contact
-          </a>
-        </div>
-      )}
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="absolute top-20 left-0 w-full bg-black bg-opacity-90 text-white flex flex-col items-center gap-5 py-5 md:hidden">
+            <a href="#home" onClick={toggleMenu}>
+              Home
+            </a>
+            <a href="#services" onClick={toggleMenu}>
+              Services
+            </a>
+            <a href="#about" onClick={toggleMenu}>
+              About
+            </a>
+            <a href="#contact" onClick={toggleMenu}>
+              Contact
+            </a>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
