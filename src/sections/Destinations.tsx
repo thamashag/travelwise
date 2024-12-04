@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import {
@@ -7,6 +9,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 
 const destinations = [
@@ -43,6 +46,21 @@ const destinations = [
 ];
 
 export default function Destinations() {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
+
   return (
     <section className="py-10">
       <h2 className="text-center text-4xl font-bold mb-8 text-[#1e508b] px-1">
@@ -50,7 +68,7 @@ export default function Destinations() {
       </h2>
 
       <div className="flex items-center justify-center px-1 md:px-12 lg:px-20 overflow-hidden">
-        <Carousel className="w-full max-w-[1500px]">
+        <Carousel setApi={setApi} className="w-full max-w-[1500px]">
           <CarouselContent className="-ml-1">
             {destinations.map((destination, index) => (
               <CarouselItem
@@ -89,6 +107,11 @@ export default function Destinations() {
           <CarouselPrevious />
           <CarouselNext />
         </Carousel>
+      </div>
+
+      {/* Slide Counter (Visible Only on Small Screens) */}
+      <div className="py-2 text-center text-sm text-muted-foreground sm:hidden">
+        Slide {current} of {count}
       </div>
     </section>
   );
