@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
-    <section className="bg-cover bg-center bg-[url('../assets/hero6.jpg')]">
+    <section className="bg-cover bg-center bg-[url('/assets/hero6.jpg')]">
       <div className="h-screen flex items-center">
         {/* Centralized container with consistent width */}
         <div className="w-full max-w-[1500px] h-full flex flex-col justify-center mx-auto px-[20px] pb-[100px] md:pb-[5px]">
