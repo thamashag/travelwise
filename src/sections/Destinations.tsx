@@ -49,7 +49,7 @@ export default function Destinations() {
         Dive Into The Beauty Of The World
       </h2>
 
-      <div className="flex items-center justify-center px-[20px]">
+      <div className="flex items-center justify-center px-20">
         <Carousel className="w-full max-w-[1300px]">
           <CarouselContent className="-ml-1">
             {destinations.map((destination, index) => (
