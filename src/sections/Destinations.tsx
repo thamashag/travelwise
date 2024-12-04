@@ -45,12 +45,12 @@ const destinations = [
 export default function Destinations() {
   return (
     <section className="py-10">
-      <h2 className="text-center text-4xl font-bold mb-8 text-[#1e508b]">
+      <h2 className="text-center text-4xl font-bold mb-8 text-[#1e508b] px-1">
         Dive Into The Beauty Of The World
       </h2>
 
-      <div className="flex items-center justify-center px-20">
-        <Carousel className="w-full max-w-[1300px]">
+      <div className="flex items-center justify-center px-1 md:px-12 lg:px-20 overflow-hidden">
+        <Carousel className="w-full max-w-[1500px]">
           <CarouselContent className="-ml-1">
             {destinations.map((destination, index) => (
               <CarouselItem
